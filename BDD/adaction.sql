@@ -22,12 +22,12 @@ CREATE TABLE volunteers (
     "lastname" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "location" INTEGER, -- FK vers cities(id)
     "waste_collection" INTEGER, -- FK vers wastes(id)
     "total_points" INTEGER NOT NULL,
     "donated_points" INTEGER NOT NULL,
     "donation" INTEGER, -- FK vers donations(id)
     "created_at" timestamp NOT NULL DEFAULT (now()),
-    "location" INTEGER, -- FK vers cities(id)
     "updated_at" timestamp NOT NULL DEFAULT (now())
 );
 
@@ -71,7 +71,7 @@ ALTER TABLE volunteers
     FOREIGN KEY ("waste_collection") REFERENCES wastes("id");
 
 ALTER TABLE volunteers
-    ADD CONSTRAINT fk_volunteers_donation 
+    ADD CONSTRAINT fk_volunteers_donation -- update: suppre
     FOREIGN KEY ("donation") REFERENCES donations("id");
 
 ALTER TABLE volunteers
@@ -143,5 +143,11 @@ ALTER TABLE adaction_connections
 -- 9. associations <-> points : One-to-Many (une association recevoir plusieurs points)
 -- 10. adaction_connections : Table de jointure Many-to-Many reliant toutes les entités principales (bénévoles, déchets, villes, associations, dons, points)
 
+
+-- Update: suppression colonne "donation" de la table volunteers
+ALTER TABLE volunteers
+DROP COLUMN "donation";
+
 -- insertion des valeurs
 -- jointure
+
