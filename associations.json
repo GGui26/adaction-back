@@ -1,0 +1,32 @@
+{
+  "associations": [
+    {
+      "id": 1,
+      "name": "Ocean Cleanup",
+      "description": "Association dédiée au nettoyage des océans et à la protection de la vie marine.",
+      "points": 100,
+      "image": "🌊"
+    },
+    {
+      "id": 2,
+      "name": "Forest Guardians",
+      "description": "Protection des forêts et reforestation à travers le monde.",
+      "points": 150,
+      "image": "🌳"
+    },
+    {
+      "id": 3,
+      "name": "Wildlife Protectors",
+      "description": "Protection des espèces menacées et préservation de leur habitat.",
+      "points": 200,
+      "image": "🦁"
+    },
+    {
+      "id": 4,
+      "name": "Clean Air Initiative",
+      "description": "Lutte contre la pollution de l'air et promotion des énergies propres.",
+      "points": 120,
+      "image": "🌬️"
+    }
+  ]
+}

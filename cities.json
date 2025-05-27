@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Paris",
+        "coordinates": {
+            "lat": "48.8566",
+            "lgn": "2.3522"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Lyon",
+        "coordinates": {
+            "lat": "45.764",
+            "lgn": "4.836"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Bordeaux",
+        "coordinates": {
+            "lat": "44.836",
+            "lgn": "0.581"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Strasbourg",
+        "coordinates": {
+            "lat": "48.34",
+            "lgn": "7.45"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Nantes",
+        "coordinates": {
+            "lat": "47.13",
+            "lgn": "1.33"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Marseille",
+        "coordinates": {
+            "lat": "43.17",
+            "lgn": "5.22"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Nice",
+        "coordinates": {
+            "lat": "43.67",
+            "lgn": "7.28"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Lille",
+        "coordinates": {
+            "lat": "50.63",
+            "lgn": "3.06"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Montpellier",
+        "coordinates": {
+            "lat": "43.36",
+            "lgn": "3.52"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Rennes",
+        "coordinates ": {
+            "lat": "48.07",
+            "lgn": "1.41"
+        }
+    }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "value": "cigarette",
+    "label": "🚬 Mégots de cigarette",
+    "className": "badge-cigarette"
+  },
+  {
+    "value": "plastic",
+    "label": "🥤 Plastique",
+    "className": "badge-plastic"
+  },
+  {
+    "value": "glass",
+    "label": "🍶 Verre",
+    "className": "badge-glass"
+  },
+  {
+    "value": "metal",
+    "label": "🥫 Métal",
+    "className": "badge-metal"
+  },
+  {
+    "value": "electronic",
+    "label": "📱 Électronique",
+    "className": "badge-electronic"
+  },
+  {
+    "value": "textile",
+    "label": "👕 Textile",
+    "className": "badge-textile"
+  },
+  {
+    "value": "organic",
+    "label": "🍎 Organique",
+    "className": "badge-organic"
+  },
+  {
+    "value": "battery",
+    "label": "🔋 Piles et batteries",
+    "className": "badge-battery"
+  },
+  {
+    "value": "other",
+    "label": "❓ Autre",
+    "className": "badge-other",
+    "quantity": 0
+  }
+]
