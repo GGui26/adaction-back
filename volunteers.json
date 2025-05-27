@@ -1,0 +1,98 @@
+[
+	{
+	  "firstname": "Claire",
+      "lastname": "Dubois",
+      "email": "claire.dubois@example.com",
+   	  "password": "Paris2025!",
+      "location": "Paris",
+	  "waste_collection": "mégots de cigarette",
+	  "total_points" : 3000,
+	  "donated_points": 2000,
+	  "created_at": "27-05-2025",
+	  "updated_at":""
+	},
+	{
+	  "firstname": "Camille",
+	  "lastname": "Girard",
+	  "email": "camille.girard@example.com",
+	  "password": "Strasbourg_321",
+	  "location": "Strasbourg",
+	  "waste_collection": "plastique",
+	  "total_points" : 5000,
+	  "donated_points": 1000,
+	  "created_at":"10-02-2025",
+	  "updated_at":""
+	},
+	{
+	  "firstname": "Antoine",
+	  "lastname": "Leclerc",
+	  "email": "antoine.leclerc@example.com",
+	  "password": "BordeauxSecure5",
+	  "location": "Bordeaux",
+	  "waste_collection": "verre",
+	  "total_points" : 5500,
+	  "donated_points": 1000,
+	  "created_at": "02-05-2025",
+	  "updated_at":""
+	},
+	{
+	  "firstname": "Elise",
+	  "lastname": "Martin",
+	  "email": "elise.martin@example.com",
+	  "password": "Toulouse789!",
+	  "location": "Toulouse",
+	  "waste_collection": "métal",
+	  "total_points" : 8000,
+	  "donated_points": 4000,
+	  "created_at":"13-04-2025",
+	  "updated_at":""
+	},
+	{
+	  "firstname": "Eric",
+	  "lastname": "Dulac",
+	  "email": "eric.dulac@example.com",
+	  "password": "Nantes_4321",
+	  "location": "Nantes",
+	  "waste_collection": "électronique",
+	  "total_points" : 2200,
+	  "donated_points": 0,
+	  "created_at":"12-05-2025",
+	  "updated_at":""
+	},
+	{
+	  "firstname": "Julien",
+	  "lastname": "Lambert",
+	  "email": "ulien.lambert@example.com",
+	  "password": "Marseille_P@ss",
+	  "location": "Marseille",
+	  "waste_collection": "autre",
+	  "total_points" : 3600,
+	  "donated_points": 1000,
+	  "created_at":"11-12-2024",
+	  "updated_at":"30-12-2024"
+	},
+	{
+	  "firstname": "Sophie",
+	  "lastname": "Renard",
+	  "email": "sophie.renard@example.com",
+	  "password": "Nice*1234",
+	  "location": "Nice",
+	  "waste_collection": "verre",
+	  "total_points" : 9000,
+	  "donated_points": 4000,
+	  "created_at":"21-04-2025",
+	  "updated_at":""
+	},
+	{
+	  "firstname": "Thomas",
+	  "lastname": "Morel",
+	  "email": "thomas.morel@example.com",
+	  "password": "Lyon#Secure1",
+	  "location": "Lyon",
+	  "waste_collection": "mégots de cigarette",
+	  "total_points" : 5700,
+	  "donated_points": 2000,
+	  "created_at":"02-03-2025",
+	  "updated_at":"27-05-2025"
+	}
+  ]
