@@ -29,7 +29,7 @@ CREATE TABLE collections (
 CREATE TABLE is_collected (
     "collect_id" INTEGER NOT NULL,
     "waste_id" INTEGER NOT NULL,
-    "quantity" INTEGER
+    "quantity" INTEGER NOT NULL
 );
 
 CREATE TABLE wastes (
