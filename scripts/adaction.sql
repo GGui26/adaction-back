@@ -1,21 +1,4 @@
 -- postgreSQL
-
--- création des tables du projet ADACTION
-CREATE TABLE cities (
-    "id" SERIAL PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "coordinates_lat" NUMERIC(8,2),
-    "coordinates_lng" NUMERIC(8,2)
-);
-
-CREATE TABLE associations (
-    "id" SERIAL PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "description" VARCHAR(255) NOT NULL,
-    "points" INTEGER NOT NULL,
-    "points_conversion" INTEGER NOT NULL
-);
-
 CREATE TABLE volunteers (
     "id" SERIAL PRIMARY KEY,
     "firstname" TEXT NOT NULL,
