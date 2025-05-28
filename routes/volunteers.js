@@ -2,7 +2,7 @@ const express = require('express');
 var cors = require('cors');
 const app = express();
 
-const volunteers = require('./volunteers.json');
+const volunteers = require('../volunteers.json');
 
 app.use(cors())
 
