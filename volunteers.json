@@ -68,7 +68,7 @@
 	  "id": 6,
 	  "firstname": "Julien",
 	  "lastname": "Lambert",
-	  "email": "ulien.lambert@example.com",
+	  "email": "julien.lambert@example.com",
 	  "password": "Marseille_P@ss",
 	  "location": "Marseille",
 	  "waste_collection": "autre",
