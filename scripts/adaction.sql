@@ -1,17 +1,5 @@
 -- postgreSQL
--- Foreign Key 
--- fk table volunteers
-ALTER TABLE volunteers
-    ADD CONSTRAINT fk_volunteers_waste_collection 
-    FOREIGN KEY ("waste_collection") REFERENCES wastes("id");
 
-ALTER TABLE volunteers
-    ADD CONSTRAINT fk_volunteers_donation -- update: suppre
-    FOREIGN KEY ("donation") REFERENCES donations("id");
-
-ALTER TABLE volunteers
-    ADD CONSTRAINT fk_volunteers_location 
-    FOREIGN KEY ("location") REFERENCES cities("id");
 
 -- fk table wastes
 ALTER TABLE wastes

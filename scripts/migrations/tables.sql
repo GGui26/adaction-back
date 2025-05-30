@@ -27,7 +27,8 @@ CREATE TABLE collections (
 );
 
 CREATE TABLE is_collected (
-    "collect_id" INTEGER NOT NULL,
+    "id" SERIAL PRIMARY KEY,
+    "collection_id" INTEGER NOT NULL,
     "waste_id" INTEGER NOT NULL,
     "quantity" INTEGER NOT NULL
 );
