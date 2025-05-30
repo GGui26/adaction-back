@@ -5,8 +5,8 @@ CREATE TABLE volunteers (
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "location" INTEGER,
-    "total_points" INTEGER NOT NULL,
-    "donated_points" INTEGER NOT NULL,
+    "total_points" INTEGER NOT NULL, -- review: à retirer
+    -- colonne donated_points déplacée dans la table donations
     "created_at" timestamp NOT NULL DEFAULT (now()),
     "updated_at" timestamp NOT NULL DEFAULT (now())
 );
@@ -42,7 +42,9 @@ CREATE TABLE wastes (
 CREATE TABLE donations (
     "id" SERIAL PRIMARY KEY,
     "association_id" INTEGER NOT NULL,
-    "volunteer_id" INTEGER NOT NULL 
+    "volunteer_id" INTEGER NOT NULL,
+    "donated_points" INTEGER NOT NULL,
+    "donation_date" TIMESTAMP WITHOUT ZONE NOT NULL
 );
 
 CREATE TABLE associations (
