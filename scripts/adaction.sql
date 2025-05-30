@@ -6,14 +6,7 @@ ALTER TABLE wastes
     ADD CONSTRAINT fk_wastes_city 
     FOREIGN KEY ("city") REFERENCES cities("id");
 
--- fk table donation
-ALTER TABLE donations
-    ADD CONSTRAINT fk_donations_association 
-    FOREIGN KEY ("association_id") REFERENCES associations("id");
 
-ALTER TABLE donations
-    ADD CONSTRAINT fk_donations_volunteer 
-    FOREIGN KEY ("volunteer_id") REFERENCES volunteers("id");
 
 -- fk table points
 ALTER TABLE points
