@@ -1,6 +1,6 @@
 # Conception de la base de données PostgreSQL
 
-## Revue des données / Base de données
+## Revue & requêtes dans la base de données
 
 - **Conserver la table `wastes`**, mais ajouter une colonne `points` (paramètre pour le déchet, ex : mégot = 10 pts).
 - **Table `wastes` (table de configuration) :**
