@@ -6,7 +6,7 @@ CREATE TABLE volunteers (
     "password" TEXT NOT NULL,
     "location" INTEGER,
     "total_points" INTEGER NOT NULL, -- doublon avec la colonne total_points de la table collections, qui facilitera les requêtes futures
-    -- colonne donated_points déplacée dans la table donations
+    -- colonne donated_points dsupprimée, puis déplacée dans la table donations
     "created_at" timestamp NOT NULL DEFAULT (now()),
     "updated_at" timestamp NOT NULL DEFAULT (now())
 );
@@ -20,7 +20,7 @@ CREATE TABLE cities (
 
 CREATE TABLE collections (
     "id" SERIAL PRIMARY KEY,
-    "volunteer_id" INTEGER NOT NULL,
+    "volunteer_id" INTEGER NOT NULL, -- Foreign Key
     "city_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP WITHOUT ZONE NOT NULL,
     "total_points" INTEGER
@@ -28,7 +28,7 @@ CREATE TABLE collections (
 
 CREATE TABLE is_collected (
     "id" SERIAL PRIMARY KEY,
-    "collection_id" INTEGER NOT NULL,
+    "collection_id" INTEGER NOT NULL, -- Foreign Key
     "waste_id" INTEGER NOT NULL,
     "quantity" INTEGER NOT NULL
 );
@@ -41,8 +41,8 @@ CREATE TABLE wastes (
 
 CREATE TABLE donations (
     "id" SERIAL PRIMARY KEY,
-    "association_id" INTEGER NOT NULL,
-    "volunteer_id" INTEGER NOT NULL,
+    "association_id" INTEGER NOT NULL, -- Foreign Key
+    "volunteer_id" INTEGER NOT NULL, -- Foreign Key
     "donated_points" INTEGER NOT NULL,
     "donation_date" TIMESTAMP WITHOUT ZONE NOT NULL
 );

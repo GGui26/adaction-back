@@ -35,16 +35,16 @@
 
 ## Relations de clés étrangères
 
-1. **cities ↔ wastes :** Un-à-plusieurs (une ville possède plusieurs déchets)
-2. **cities ↔ volunteers :** Un-à-plusieurs (une ville possède plusieurs bénévoles)
-3. **associations ↔ donations :** Un-à-plusieurs (une association peut recevoir plusieurs dons)
-4. **volunteers ↔ donations :** Un-à-plusieurs (un bénévole peut faire plusieurs dons)
-5. **volunteers ↔ collectes :** Un-à-plusieurs (un bénévole peut faire plusieurs collectes)
-6. **collectes ↔ isCollected :** Un-à-plusieurs (une collecte contient plusieurs déchets collectés)
-7. **wastes ↔ isCollected :** Un-à-plusieurs (un type de déchet peut être collecté dans plusieurs collectes)
-8. **wastes ↔ points :** Un-à-un (chaque type de déchet a un nombre de points associé)
-9. **volunteers ↔ points :** Un-à-un (le total de points d’un bénévole est calculé à partir des collectes)
-10. **donations ↔ points :** Un-à-un (un don peut générer des points pour le bénévole)
+1. **cities ↔ wastes :** One-to-Many (une ville possède plusieurs déchets)
+2. **cities ↔ volunteers :** One-to-Many (une ville possède plusieurs bénévoles)
+3. **associations ↔ donations :** One-to-Many (une association peut recevoir plusieurs dons)
+4. **volunteers ↔ donations :** One-to-Many (un bénévole peut faire plusieurs dons)
+5. **volunteers ↔ collectes :** One-to-Many (un bénévole peut faire plusieurs collectes)
+6. **collectes ↔ isCollected :** One-to-Many (une collecte contient plusieurs déchets collectés)
+7. **wastes ↔ isCollected :** One-to-Many (un type de déchet peut être collecté dans plusieurs collectes)
+8. **wastes ↔ points :** One-to-One (chaque type de déchet a un nombre de points associé)
+9. **volunteers ↔ points :** One-to-One (le total de points d’un bénévole est calculé à partir des collectes)
+10. **donations ↔ points :** One-to-One (un don peut générer des points pour le bénévole)
 
 
 
