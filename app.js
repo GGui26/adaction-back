@@ -56,7 +56,7 @@ app.use(express.urlencoded({ extended: true })); // pour encoder
 
 
 app.use((req, res, next) => {
-  console.log(`Requête reçue : ${req.method} ${req.url}`);
+  console.log(`Requête reçue : ${req.method}q ${req.url}`);
   next();
 });
 
