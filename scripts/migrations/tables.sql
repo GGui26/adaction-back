@@ -52,7 +52,7 @@ CREATE TABLE associations (
     "name" TEXT NOT NULL,
     "description" VARCHAR(255) NOT NULL,
     "points" INTEGER NOT NULL,
-    "points_conversion_euro" INTEGER NOT NULL -- modification nom de colonne dans DrawSQL
+    "points_conversion_euro" INTEGER NOT NULL -- review modification nom de colonne dans schéma DrawSQL
 );
 
 

@@ -1,9 +1,4 @@
-
-
-
-
--- fk table is_collected
-ALTER TABLE is_collected
-    ADD CONSTRAINT fk_collection_volunteer
-    FOREIGN KEY ("collection_id") REFERENCES collections("id");
-
+-- Update: suppression colonne "donation" de la table volunteers
+ALTER TABLE volunteers
+DROP COLUMN "donation";
+DROP COLUMN "donated_points";

@@ -1,51 +1,12 @@
 -- postgreSQL
 
-
--- fk table wastes
-ALTER TABLE wastes
-    ADD CONSTRAINT fk_wastes_city 
-    FOREIGN KEY ("city") REFERENCES cities("id");
-
-
-
--- fk table points
-ALTER TABLE points
-    ADD CONSTRAINT fk_points_volunteer 
-    FOREIGN KEY ("volunteer_id") REFERENCES volunteers("id");
-
-ALTER TABLE points
-    ADD CONSTRAINT fk_points_waste 
-    FOREIGN KEY ("waste_id") REFERENCES wastes("id");
-
-ALTER TABLE points
-    ADD CONSTRAINT fk_points_donation 
-    FOREIGN KEY ("donation_id") REFERENCES donations("id");
-
-ALTER TABLE points
-    ADD CONSTRAINT fk_points_association 
-    FOREIGN KEY ("association_id") REFERENCES associations("id");
-
--- fk table adaction_connections
-ALTER TABLE adaction_connections
-    ADD CONSTRAINT fk_ac_volunteer 
-    FOREIGN KEY ("volunteer_id") REFERENCES volunteers("id");
-
-ALTER TABLE adaction_connections
-    ADD CONSTRAINT fk_waste 
-    FOREIGN KEY ("waste_id") REFERENCES wastes("id");
-
-ALTER TABLE adaction_connections
-    ADD CONSTRAINT fk_city 
-    FOREIGN KEY ("city_id") REFERENCES cities("id");
-
-ALTER TABLE adaction_connections
-    ADD CONSTRAINT fk_association 
-    FOREIGN KEY ("association_id") REFERENCES associations("id");
-
-ALTER TABLE adaction_connections
-    ADD CONSTRAINT fk_donation 
-    FOREIGN KEY ("donation_id") REFERENCES donations("id");
-
+-- review Data / BDD : 
+-- conserver la table wastes, mais y rajouter une colonne points (paramètre du déchet, ex: mégot = 10 pts)
+-- table wastes (table de paramétrages) : supprimer colonne quantity, suppr city, et ajouter les points associés
+-- création table collecte : id UUID, volunteer_id, city, date (opt: total de points si gamification)
+-- création table isCollected : collect_id, waste_id, quantity -> all fk ! -> table d'action
+-- Eviter de faire du N:N -> conflit interne en base de données 
+    -- ex: plusieurs maisons peuvent avoir plusieurs fenêtres, donc on ne sait pas quelle fenêtre appartient à telle ou telle maison
 
 -- Type de relation entre les tables
 -- 1. cities <-> wastes : One-to-Many (une ville possède plusieurs déchets)
@@ -60,17 +21,4 @@ ALTER TABLE adaction_connections
 -- 10. adaction_connections : Table de jointure Many-to-Many reliant toutes les entités principales (bénévoles, déchets, villes, associations, dons, points)
 
 
--- Update: suppression colonne "donation" de la table volunteers
-ALTER TABLE volunteers
-DROP COLUMN "donation";
 
--- insertion des valeurs
--- jointure
-
--- review Data / BDD : 
--- conserver la table wastes, mais y rajouter une colonne points (paramètre du déchet, ex: mégot = 10 pts)
--- table wastes (table de paramétrages) : supprimer colonne quantity, suppr city, et ajouter les points associés
--- création table collecte : id UUID, volunteer_id, city, date (opt: total de points si gamification)
--- création table isCollected : collect_id, waste_id, quantity -> all fk ! -> table d'action
--- Eviter de faire du N:N -> conflit interne en base de données 
-    -- ex: plusieurs maisons peuvent avoir plusieurs fenêtres, donc on ne sait pas quelle fenêtre appartient à telle ou telle maison
