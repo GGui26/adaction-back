@@ -5,7 +5,7 @@ CREATE TABLE volunteers (
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "location" INTEGER,
-    "total_points" INTEGER NOT NULL, -- review: à retirer
+    "total_points" INTEGER NOT NULL, -- doublon avec la colonne total_points de la table collections, qui facilitera les requêtes futures
     -- colonne donated_points déplacée dans la table donations
     "created_at" timestamp NOT NULL DEFAULT (now()),
     "updated_at" timestamp NOT NULL DEFAULT (now())
