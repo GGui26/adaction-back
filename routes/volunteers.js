@@ -20,6 +20,17 @@ router.get('/', (req, res) => {
     res.status(404).json({ error: 'Aucun volontaire trouvé avec ces critères' });
   }
 });
+// GET : un volunteer par son ID
+router.get('/:id', (req, res) => {
+  const volunteerId = parseInt(req.params.id);
+  const volunteer = volunteers.find(v => v.id === volunteerId);
+
+  if (!volunteer) {
+    return res.status(404).json({ error: 'Volontaire non trouvé' });
+  }
+  res.json(volunteer);
+});
+
 
 // POST : ajouter un volunteer
 router.post('/', (req, res) => {
