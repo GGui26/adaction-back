@@ -44,7 +44,7 @@ getPgVersion();
 
 
 const express = require('express');
-require('dotenv').config();
+// require('dotenv').config();  DEJA ECRIT EN LIGNE 2
 const cors = require('cors');
 const app = express();
 
