@@ -28,8 +28,9 @@
 - Supprimer la colonne `total_points` de la table `volunteers`.
 - Supprimer la colonne `donated_points` de la table `volunteers`.
     - Ajouter la colonne `donated_points` à la table `donations`.
-    - Ajouter la colonne `donation_date` à la table `donations`.
+    - Ajouter la colonne `donation_date` à la table `donations`. // Optionnel, en vue d'une extension de projet
     - *Le montant du don est une propriété de la table `donations`.*
+- 2/06 : ajout de la colonne `collected_at` de type timestamp dans la table is_collected -> ajout dans le script SQL (Marine)
 
 ---
 
