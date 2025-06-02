@@ -4,9 +4,8 @@ CREATE TABLE volunteers (
     "lastname" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "location" INTEGER,
-    "total_points" INTEGER NOT NULL, -- doublon avec la colonne total_points de la table collections, qui facilitera les requêtes futures
-    -- colonne donated_points dsupprimée, puis déplacée dans la table donations
+    "location" INTEGER NOT NULL,
+    -- colonne donated_points supprimée, puis déplacée dans la table donations
     "created_at" timestamp NOT NULL DEFAULT (now()),
     "updated_at" timestamp NOT NULL DEFAULT (now())
 );
@@ -30,7 +29,8 @@ CREATE TABLE is_collected (
     "id" SERIAL PRIMARY KEY,
     "collection_id" INTEGER NOT NULL, -- Foreign Key
     "waste_id" INTEGER NOT NULL,
-    "quantity" INTEGER NOT NULL
+    "quantity" INTEGER NOT NULL,
+    "collected_at" TIMESTAMP WITHOUT ZONE NOT NULL
 );
 
 CREATE TABLE wastes (
@@ -44,7 +44,6 @@ CREATE TABLE donations (
     "association_id" INTEGER NOT NULL, -- Foreign Key
     "volunteer_id" INTEGER NOT NULL, -- Foreign Key
     "donated_points" INTEGER NOT NULL,
-    "donation_date" TIMESTAMP WITHOUT ZONE NOT NULL
 );
 
 CREATE TABLE associations (
@@ -52,7 +51,7 @@ CREATE TABLE associations (
     "name" TEXT NOT NULL,
     "description" VARCHAR(255) NOT NULL,
     "points" INTEGER NOT NULL,
-    "points_conversion_euro" INTEGER NOT NULL -- review modification nom de colonne dans schéma DrawSQL
+    "points_conversion_euro" INTEGER NOT NULL
 );
 
 
