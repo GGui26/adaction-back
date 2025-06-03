@@ -19,8 +19,8 @@ const pool = new Pool({
   },
 });
 router.get('/', (req, res)=>{
-  // pool.query('SELECT * FROM volunteers', (err, data)=>{
-  //   if (err){
+  // pool.query('SELECT * FROM volunteers', (err, data) => {
+  //   if (err) {
   //     console.log("coucou", err);
   //     return res.status(500).send(err);
   //   }

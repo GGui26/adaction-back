@@ -39,9 +39,11 @@ const express = require('express');
 // require('dotenv').config();  DEJA ECRIT EN LIGNE 2
 const cors = require("cors");
 const app = express();
+const port = 3001; 
 
-const volunteersRoutes = require('./routes/volunteers');
-const associationsRoutes = require('./routes/associations'); // importer tout le contenue du fichier associations.js dans app.js
+// importer tout le contenue du fichier associations.js dans app.js
+// const volunteersRoutes = require('./routes/volunteers');
+// const associationsRoutes = require('./routes/associations'); 
 
 app.use(cors());
 app.use(express.json()); // MIDDLEWARE global
@@ -53,10 +55,9 @@ app.use((req, res, next) => {
 });
 
 // router
-app.use('/volunteers', volunteersRoutes);
+app.use('/volunteers'); // Pas besoin de mettre .js
 //app.use('/associations' ,associationsRoutes ); //revoyer le traitement de cette route au fichier associations.js
 
-const port = 3001; // Changer le port ?
 
 // pour lancer le serveur
 app.listen(port, () => {
@@ -64,7 +65,13 @@ app.listen(port, () => {
 });
 
 // test de route
-app.get("/adalovelace", (req, res) => {
-  console.log("Route /on change le test !");
-  res.send("on croise les doigts...");
+app.get("/volunteers", (req, res) => {
+  pool.query('SELECT * FROM volunteers', (err, data) => {
+    if (err) {
+      console.log("coucou", err);
+      return res.status(500).send(err);
+    }
+     console.log("coucou je suis bien dans la route");
+    res.json(data);
+  });
 });
