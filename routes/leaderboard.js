@@ -6,7 +6,7 @@ app.use(express.json()); // nécessaire pour les POST car on solicite le body JS
 
 
 
-GET : TOUS LES VOLUNTEERS OU AVEC FILTRES
+// GET : TOUS LES VOLUNTEERS OU AVEC FILTRES
 app.get('/', (req, res) => {
  res.send('Hello leaderboard!');
 });

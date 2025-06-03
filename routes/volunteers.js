@@ -3,23 +3,55 @@ const volunteers = require('../volunteers.json');
 
 const router = express.Router();
 router.use(express.json()); // nécessaire pour les POST car on solicite le body JSON
+require("dotenv").config();
 
+// 2. Importer le client PostgreSQL
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  host: PGHOST,
+  database: PGDATABASE,
+  username: PGUSER,
+  password: PGPASSWORD,
+  port: 5432, // Le port standard de PostgreSQL
+  ssl: {
+    require: true, // Nécessaire pour Neon, assure une connexion sécurisée
+  },
+});
+router.get('/', (req, res)=>{
+  // pool.query('SELECT * FROM volunteers', (err, data)=>{
+  //   if (err){
+  //     console.log("coucou", err);
+  //     return res.status(500).send(err);
+  //   }
+  //    console.log("coucou je siuis bien dans la route");
+  //   res.json(data);
+  // });
+  res.send("coucou")
+});
 
 // GET : TOUS LES VOLUNTEERS OU AVEC FILTRES
-router.get('/', (req, res) => {
-  let results = volunteers;
 
-  for (const [key, value] of Object.entries(req.query)) {
-    results = results.filter(volunteer =>
-      volunteer[key] && volunteer[key].toString().toLowerCase() === value.toLowerCase()
-    );
-  }
-  if (results.length > 0) {
-    res.json(results);
-  } else {
-    res.status(404).json({ error: 'Aucun volontaire trouvé avec ces critères' });
-  }
-});
+// ancienne version json
+// router.get('/', (req, res) => {
+//   let results = volunteers;
+
+//   for (const [key, value] of Object.entries(req.query)) {
+//     results = results.filter(volunteer =>
+//       volunteer[key] && volunteer[key].toString().toLowerCase() === value.toLowerCase()
+//     );
+//   }
+//   if (results.length > 0) {
+//     res.json(results);
+//   } else {
+//     res.status(404).json({ error: 'Aucun volontaire trouvé avec ces critères' });
+//   }
+// });
+
+// 1. Le code importé par NEON pour configurer la BDD créée :
+
+
+
 // GET : un volunteer par son ID
 router.get('/:id', (req, res) => {
   const volunteerId = parseInt(req.params.id);

@@ -1,8 +1,8 @@
 // 1. Le code importé par NEON pour configurer la BDD créée :
-require('dotenv').config();
+require("dotenv").config();
 
 // 2. Importer le client PostgreSQL
-const { Pool } = require('pg');
+const { Pool } = require("pg");
 
 // 3. Récupérer les variables de connexion depuis process.env (chargées par dotenv)
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
@@ -37,7 +37,7 @@ getPgVersion();
 
 const express = require('express');
 // require('dotenv').config();  DEJA ECRIT EN LIGNE 2
-const cors = require('cors');
+const cors = require("cors");
 const app = express();
 
 const volunteersRoutes = require('./routes/volunteers');
@@ -46,7 +46,6 @@ const associationsRoutes = require('./routes/associations'); // importer tout le
 app.use(cors());
 app.use(express.json()); // MIDDLEWARE global
 app.use(express.urlencoded({ extended: true })); // pour encoder
-
 
 app.use((req, res, next) => {
   console.log(`Requête reçue : ${req.method}q ${req.url}`);
@@ -61,13 +60,11 @@ const port = 3001; // Changer le port ?
 
 // pour lancer le serveur
 app.listen(port, () => {
-  console.log(`serveur démarré sur le port  ${port}`)
-})
-
-// test de route
-app.get('/test', (req, res) => {
-  console.log("Route /test appelée !");
-  res.send("Test OK");
+  console.log(`serveur démarré sur le port  ${port}`);
 });
 
-
+// test de route
+app.get("/adalovelace", (req, res) => {
+  console.log("Route /on change le test !");
+  res.send("on croise les doigts...");
+});
