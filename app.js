@@ -41,7 +41,7 @@ const cors = require('cors');
 const app = express();
 
 const volunteersRoutes = require('./routes/volunteers');
-const manageUsersRoutes = require('./routes/manage-users'); // imposter tout le contenue du fichier manage-users.js dans app.js
+const associationsRoutes = require('./routes/associations'); // importer tout le contenue du fichier associations.js dans app.js
 
 app.use(cors());
 app.use(express.json()); // MIDDLEWARE global
@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 
 // router
 app.use('/volunteers', volunteersRoutes);
-app.use('/manage-users' ,manageUsersRoutes ); //revoyer le traitement de cette route au fichier manage-users.js
+app.use('/associations' ,associationsRoutes ); //revoyer le traitement de cette route au fichier associations.js
 
 const port = 3001; // Changer le port ?
 
