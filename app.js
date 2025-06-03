@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 
 // router
 app.use('/volunteers', volunteersRoutes);
-app.use('/associations' ,associationsRoutes ); //revoyer le traitement de cette route au fichier associations.js
+//app.use('/associations' ,associationsRoutes ); //revoyer le traitement de cette route au fichier associations.js
 
 const port = 3001; // Changer le port ?
 
