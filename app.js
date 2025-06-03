@@ -23,6 +23,7 @@ const pool = new Pool({
 async function getPgVersion() {
   const client = await pool.connect(); // Obtient un client du pool
   try {
+<<<<<<< HEAD
     const result = await client.query("SELECT version()"); // Exécute une simple requête
     console.log("Connexion à la base de données réussie !");
     console.log(result.rows[0]); // Affiche la version de PostgreSQL
@@ -31,24 +32,36 @@ async function getPgVersion() {
       "Erreur de connexion à la base de données ou d'exécution de la requête :",
       err
     );
+=======
+    const result = await client.query('SELECT version()'); // Exécute une simple requête
+    console.log(result.rows[0]); // Affiche la version de PostgreSQL
+>>>>>>> 3d8eb24d523b489ecd235a565e3159ec58668e47
   } finally {
     client.release(); // Libère le client pour qu'il retourne au pool
   }
 }
-
 // 6. Appeler la fonction de test pour vérifier la connexion au démarrage de l'application
 getPgVersion();
 
 // 7. ça me demande (Optionnel) d'Exporter le 'pool' pour l'utiliser dans d'autres modules de votre application
 // module.exports = pool;
 
+<<<<<<< HEAD
 const express = require("express");
+=======
+const express = require('express');
+>>>>>>> 3d8eb24d523b489ecd235a565e3159ec58668e47
 // require('dotenv').config();  DEJA ECRIT EN LIGNE 2
 const cors = require("cors");
 const app = express();
 
+<<<<<<< HEAD
 const volunteersRoutes = require("./routes/volunteers");
 const manageUsersRoutes = require("./routes/manage-users"); // imposter tout le contenue du fichier manage-users.js dans app.js
+=======
+const volunteersRoutes = require('./routes/volunteers');
+const associationsRoutes = require('./routes/associations'); // importer tout le contenue du fichier associations.js dans app.js
+>>>>>>> 3d8eb24d523b489ecd235a565e3159ec58668e47
 
 app.use(cors());
 app.use(express.json()); // MIDDLEWARE global
@@ -60,10 +73,15 @@ app.use((req, res, next) => {
 });
 
 // router
+<<<<<<< HEAD
 app.use("/volunteers", volunteersRoutes);
 app.use("/manage-users", manageUsersRoutes); //revoyer le traitement de cette route au fichier manage-users.js
+=======
+app.use('/volunteers', volunteersRoutes);
+app.use('/associations' ,associationsRoutes ); //revoyer le traitement de cette route au fichier associations.js
+>>>>>>> 3d8eb24d523b489ecd235a565e3159ec58668e47
 
-const port = 3001;
+const port = 3001; // Changer le port ?
 
 // pour lancer le serveur
 app.listen(port, () => {
