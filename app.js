@@ -64,7 +64,7 @@ app.listen(port, () => {
 });
 
 // test de route
-app.get("/test", (req, res) => {
-  console.log("Route /test appelée !");
-  res.send("Test OK");
+app.get("/adalovelace", (req, res) => {
+  console.log("Route /on change le test !");
+  res.send("on croise les doigts...");
 });
