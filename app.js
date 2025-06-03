@@ -24,24 +24,16 @@ async function getPgVersion() {
   const client = await pool.connect(); // Obtient un client du pool
   try {
     const result = await client.query('SELECT version()'); // Exécute une simple requête
-    console.log("Connexion à la base de données réussie !");
     console.log(result.rows[0]); // Affiche la version de PostgreSQL
-  } catch (err) {
-    console.error("Erreur de connexion à la base de données ou d'exécution de la requête :", err);
   } finally {
     client.release(); // Libère le client pour qu'il retourne au pool
   }
 }
-
 // 6. Appeler la fonction de test pour vérifier la connexion au démarrage de l'application
 getPgVersion();
 
 // 7. ça me demande (Optionnel) d'Exporter le 'pool' pour l'utiliser dans d'autres modules de votre application
 // module.exports = pool;
-
-
-
-
 
 const express = require('express');
 // require('dotenv').config();  DEJA ECRIT EN LIGNE 2
@@ -65,7 +57,7 @@ app.use((req, res, next) => {
 app.use('/volunteers', volunteersRoutes);
 app.use('/manage-users' ,manageUsersRoutes ); //revoyer le traitement de cette route au fichier manage-users.js
 
-const port = 3001;
+const port = 3001; // Changer le port ?
 
 // pour lancer le serveur
 app.listen(port, () => {
