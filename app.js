@@ -12,16 +12,18 @@ const port = 3001;
 
 // importer tout le contenue du fichier associations.js dans app.js
 const volunteersRoutes = require('./routes/volunteers');
-const associationsRoutes = require('./routes/associations'); 
-
-app.use('/volunteers', volunteersRoutes);
-app.use('/associations', associationsRoutes);
-
+const associationsRoutes = require('./routes/associations');
+const citiesRoutes = require('./routes/cities');
 
 app.use((req, res, next) => {
   console.log(`Requête reçue : ${req.method}q ${req.url}`);
   next();
 });
+
+app.use('/volunteers', volunteersRoutes);
+app.use('/associations', associationsRoutes);
+app.use('/cities' , citiesRoutes);
+
 
 // pour lancer le serveur
 app.listen(port, () => {
