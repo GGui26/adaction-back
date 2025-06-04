@@ -1,10 +1,8 @@
 const express = require('express');
-// const volunteers = require('../volunteers.json');
 const pool = require('../db');
 
 const router = express.Router();
 router.use(express.json()); // nécessaire pour les POST car on solicite le body JSON
-
 
 
 // GET : TOUS LES VOLUNTEERS
@@ -18,6 +16,20 @@ router.get('/', async (req, res)=>{
   }return router;
 });
 
+// GET : UN VOLUNTEER PAR ID
+router.get('/:id', async (req, res)=>{
+  const volunteerId = req.params.id;
+  try{
+    const result = await pool.query('SELECT * FROM volunteers WHERE id = $1', [volunteerId]);
+    if (result.rows.length === 0){
+      return res.status(404).json({message: "Volontaire non trouvé"});
+    }
+    res.json(result.rows);
+  }catch (err){
+    console.error("Erreur lors de la récupération du volontaire :", err);
+    res.status(500).send("Erreur serveur");
+  }
+});
 
 module.exports = router;
 
@@ -37,10 +49,6 @@ module.exports = router;
 //     res.status(404).json({ error: 'Aucun volontaire trouvé avec ces critères' });
 //   }
 // });
-
-// 1. Le code importé par NEON pour configurer la BDD créée :
-
-
 
 // GET : un volunteer par son ID
 // router.get('/:id', (req, res) => {
@@ -109,9 +117,6 @@ module.exports = router;
 //     res.status(404).json({ error: 'Volontaire non trouvé' });
 //   }
 // });
-
-
-
 
 // EXEMPLES RECHERCHE GET avec les query params
 // http://localhost:3001/volunteers
