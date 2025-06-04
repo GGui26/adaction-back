@@ -7,6 +7,11 @@ const app = express();
 app.use(express.json()); // MIDDLEWARE global
 app.use(express.urlencoded({ extended: true })); // pour encoder
 
+app.use(cors({
+  origin: "http://localhost:3001",
+  credentials: true,
+}));
+
 const port = 3001; 
 
 
@@ -14,6 +19,11 @@ const port = 3001;
 const volunteersRoutes = require('./routes/volunteers');
 const associationsRoutes = require('./routes/associations');
 const citiesRoutes = require('./routes/cities');
+const wastesRoutes = require('./routes/wastes');
+
+
+
+
 
 app.use((req, res, next) => {
   console.log(`Requête reçue : ${req.method}q ${req.url}`);
@@ -23,6 +33,7 @@ app.use((req, res, next) => {
 app.use('/volunteers', volunteersRoutes);
 app.use('/associations', associationsRoutes);
 app.use('/cities' , citiesRoutes);
+app.use('/wastes' , wastesRoutes);
 
 
 // pour lancer le serveur
@@ -31,7 +42,3 @@ app.listen(port, () => {
 });
 
 
-app.use(cors({
-  origin: "http://localhost:3001",
-  credentials: true,
-}));
