@@ -1,36 +1,26 @@
 const express = require('express');
-const volunteers = require('../volunteers.json');
+// const volunteers = require('../volunteers.json');
+const pool = require('../db');
 
 const router = express.Router();
 router.use(express.json()); // nécessaire pour les POST car on solicite le body JSON
-require("dotenv").config();
 
-// 2. Importer le client PostgreSQL
-const { Pool } = require("pg");
 
-const pool = new Pool({
-  host: PGHOST,
-  database: PGDATABASE,
-  username: PGUSER,
-  password: PGPASSWORD,
-  port: 5432, // Le port standard de PostgreSQL
-  ssl: {
-    require: true, // Nécessaire pour Neon, assure une connexion sécurisée
-  },
-});
-router.get('/', (req, res)=>{
-  // pool.query('SELECT * FROM volunteers', (err, data) => {
-  //   if (err) {
-  //     console.log("coucou", err);
-  //     return res.status(500).send(err);
-  //   }
-  //    console.log("coucou je siuis bien dans la route");
-  //   res.json(data);
-  // });
-  res.send("coucou")
+
+// GET : TOUS LES VOLUNTEERS
+router.get('/', async (req, res)=>{
+  try{
+    const result = await pool.query('SELECT * FROM volunteers');
+    res.json(result.rows);
+  }catch (err){
+    console.error("Erreur PostgreSQL : ", err);
+    res.status(500).send("Erreur lors de la récupération des bénévoles");
+  }return router;
 });
 
-// GET : TOUS LES VOLUNTEERS OU AVEC FILTRES
+
+module.exports = router;
+
 
 // ancienne version json
 // router.get('/', (req, res) => {
@@ -53,75 +43,73 @@ router.get('/', (req, res)=>{
 
 
 // GET : un volunteer par son ID
-router.get('/:id', (req, res) => {
-  const volunteerId = parseInt(req.params.id);
-  const volunteer = volunteers.find(v => v.id === volunteerId);
+// router.get('/:id', (req, res) => {
+//   const volunteerId = parseInt(req.params.id);
+//   const volunteer = volunteers.find(v => v.id === volunteerId);
 
-  if (!volunteer) {
-    return res.status(404).json({ error: 'Volontaire non trouvé' });
-  }
-  res.json(volunteer);
-});
+//   if (!volunteer) {
+//     return res.status(404).json({ error: 'Volontaire non trouvé' });
+//   }
+//   res.json(volunteer);
+// });
 
 
 // POST : ajouter un volunteer
-router.post('/', (req, res) => {
-   console.log("body reçu", req.body);
-  const newVolunteer = {
-    id: req.body.id,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    password: req.body.password,
-    location: req.body.location,
-    waste_collection: req.body.waste_collection,
-    total_points: req.body.total_points,
-    donated_points: req.body.donated_points,
-    created_at: req.body.created_at,
-    updated_at: req.body.updated_at || ""
-  };
-  ;
-  volunteers.push(newVolunteer);
-  res.status(201).json(newVolunteer);
-});
+// router.post('/', (req, res) => {
+//    console.log("body reçu", req.body);
+//   const newVolunteer = {
+//     id: req.body.id,
+//     firstname: req.body.firstname,
+//     lastname: req.body.lastname,
+//     email: req.body.email,
+//     password: req.body.password,
+//     location: req.body.location,
+//     waste_collection: req.body.waste_collection,
+//     total_points: req.body.total_points,
+//     donated_points: req.body.donated_points,
+//     created_at: req.body.created_at,
+//     updated_at: req.body.updated_at || ""
+//   };
+//   ;
+//   volunteers.push(newVolunteer);
+//   res.status(201).json(newVolunteer);
+// });
 
 
 // PUT : updater un volunteer par son ID
-router.put('/:id', (req, res) => {
-  const volunteerId = parseInt(req.params.id);
-  const index = volunteers.findIndex(v => v.id === volunteerId);
+// router.put('/:id', (req, res) => {
+//   const volunteerId = parseInt(req.params.id);
+//   const index = volunteers.findIndex(v => v.id === volunteerId);
 
-  if (index === -1) {
-    return res.status(404).json({ error: 'Volontaire non trouvé' });
-  }
+//   if (index === -1) {
+//     return res.status(404).json({ error: 'Volontaire non trouvé' });
+//   }
 
-  // On met à jour seulement les champs reçus dans req.body
-  volunteers[index] = {
-    ...volunteers[index],
-    ...req.body,
-    id: volunteerId // on s'assure que l'id ne change pas
-  };
-  res.json(volunteers[index]);
-});
+//   // On met à jour seulement les champs reçus dans req.body
+//   volunteers[index] = {
+//     ...volunteers[index],
+//     ...req.body,
+//     id: volunteerId // on s'assure que l'id ne change pas
+//   };
+//   res.json(volunteers[index]);
+// });
 
 
 // DELETE : supprimer un volunteer par ID
-router.delete('/:id', (req, res) => {
-  const volunteerId = parseInt(req.params.id);
-  const index = volunteers.findIndex(v => v.id === volunteerId);
+// router.delete('/:id', (req, res) => {
+//   const volunteerId = parseInt(req.params.id);
+//   const index = volunteers.findIndex(v => v.id === volunteerId);
 
-  console.log('Index trouvé :', index); 
+//   console.log('Index trouvé :', index); 
 
-  if (index !== -1) {
-    const deletedVolunteer = volunteers.splice(index, 1)[0];
-    res.json({ message: 'Volontaire supprimé', volunteer: deletedVolunteer });
-  } else {
-    res.status(404).json({ error: 'Volontaire non trouvé' });
-  }
-});
+//   if (index !== -1) {
+//     const deletedVolunteer = volunteers.splice(index, 1)[0];
+//     res.json({ message: 'Volontaire supprimé', volunteer: deletedVolunteer });
+//   } else {
+//     res.status(404).json({ error: 'Volontaire non trouvé' });
+//   }
+// });
 
-
-module.exports = router;
 
 
 
