@@ -25,13 +25,13 @@ app.use('/associations', associationsRoutes);
 app.use('/cities' , citiesRoutes);
 
 
-// pour lancer le serveur
-app.listen(port, () => {
-  console.log(`serveur démarré sur le port  ${port}`);
-});
-
-
 app.use(cors({
   origin: "http://localhost:3001",
   credentials: true,
 }));
+
+
+// pour lancer le serveur
+app.listen(port, () => {
+  console.log(`serveur démarré sur le port  ${port}`);
+});
