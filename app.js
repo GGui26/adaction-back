@@ -20,10 +20,7 @@ const volunteersRoutes = require('./routes/volunteers');
 const associationsRoutes = require('./routes/associations');
 const citiesRoutes = require('./routes/cities');
 const wastesRoutes = require('./routes/wastes');
-
-
-
-
+const collectionsRoutes = require('./routes/collections');
 
 app.use((req, res, next) => {
   console.log(`Requête reçue : ${req.method}q ${req.url}`);
@@ -34,6 +31,7 @@ app.use('/volunteers', volunteersRoutes);
 app.use('/associations', associationsRoutes);
 app.use('/cities' , citiesRoutes);
 app.use('/wastes' , wastesRoutes);
+app.use('/collections', collectionsRoutes);
 
 
 app.use(cors({
