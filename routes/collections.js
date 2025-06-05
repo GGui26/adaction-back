@@ -1,9 +1,7 @@
-
 const express = require('express');
 const pool = require('../db');
-
 const router = express.Router();
-router.use(express.json());
+router.use(express.json()); // a ne pas oublier pour les POST
 
 // GET : Toutes les collectes
 router.get('/', async (req, res) => {
@@ -44,7 +42,6 @@ router.post('/', async (req, res) => {
         if (volunteerCheck.rows.length === 0) {
             return res.status(404).json({ error: "Bénévole non trouvé" });
         }
-
         // Créer la collecte et l'associer au bénévole
         const result = await pool.query(
             'INSERT INTO collections (name, description, volunteer_id) VALUES ($1, $2, $3) RETURNING *',
