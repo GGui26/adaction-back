@@ -20,9 +20,8 @@ const volunteersRoutes = require('./routes/volunteers');
 const associationsRoutes = require('./routes/associations');
 const citiesRoutes = require('./routes/cities');
 const wastesRoutes = require('./routes/wastes');
-
-
-
+const collectionsRoutes = require('./routes/collections');
+const leaderboardRoutes = require('./routes/leaderboard');
 
 
 app.use((req, res, next) => {
@@ -34,6 +33,8 @@ app.use('/volunteers', volunteersRoutes);
 app.use('/associations', associationsRoutes);
 app.use('/cities' , citiesRoutes);
 app.use('/wastes' , wastesRoutes);
+app.use('/collections', collectionsRoutes);
+app.use('/leaderboard', leaderboardRoutes);
 
 
 app.use(cors({
