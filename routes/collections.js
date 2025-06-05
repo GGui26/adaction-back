@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// POST : création d'une nouvelle collecte et association avec un bénévole
+// POST : création d'une nouvelle collecte en l'assignant à un bénévole
 router.post('/', async (req, res) => {
     const { name, description, volunteer_id } = req.body;
     if (!volunteer_id) {
