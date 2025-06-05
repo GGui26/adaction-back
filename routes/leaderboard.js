@@ -7,10 +7,14 @@ const pool = require('../db');
 
 router.get('/', async (req, res)=>{
   try{
-    const results = await pool.query('SELECT * FROM associations');
-    // const results = await pool.query('SELECT name, description, points FROM associations');
-    
-
+    const results = await pool.query(`
+      SELECT v.firstname,
+      SUM(c.number_collections) AS total_collections
+      FROM collections c
+      JOIN volunteers v ON v.id = c.volunteer_id
+      GROUP BY v.id, v.firstname
+      ORDER BY total_collections DESC
+    `);
     res.json(results.rows);
   } catch(err) {
     res.status(500).json({error: 'Erreur serveur' });
@@ -18,6 +22,3 @@ router.get('/', async (req, res)=>{
 });
 
 module.exports = router;
-
-// créer une route qui résume la page web donate (dans ce cas sans la colonne points_conversion_euro)
-// (Marine) review : Petit point Mardi de 5 min, questions-compréhension sur les routes
