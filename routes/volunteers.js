@@ -31,7 +31,27 @@ router.get('/:id', async (req, res)=>{
   }
 });
 
+
+//exemple de Vi sur PATCH
+router.patch('/:id', async (req, res)=>{
+  const data = req.body;
+
+  console.log(data);
+  
+  
+  try{
+    // const result = await pool.query('SELECT * FROM volunteers WHERE id = $1', [volunteerId]);
+    
+    // res.json(result.rows);
+  }catch (err){
+    console.error("Erreur lors de la récupération du volontaire :", err);
+    res.status(500).send("Erreur serveur");
+  }
+});
+
 module.exports = router;
+
+
 
 
 // ancienne version json

@@ -30,11 +30,12 @@ app.use((req, res, next) => {
 });
 
 app.use('/volunteers', volunteersRoutes);
+app.use('/volunteers/:id', volunteersRoutes);
 app.use('/associations', associationsRoutes);
 app.use('/cities' , citiesRoutes);
 app.use('/wastes' , wastesRoutes);
 app.use('/collections', collectionsRoutes);
-// app.use('/leaderboard', leaderboardRoutes);
+app.use('/leaderboard', leaderboardRoutes);
 
 console.log('3');
 app.use(cors({
