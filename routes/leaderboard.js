@@ -1,26 +1,23 @@
-const express = require("express");
-const pool = require("../db");
 
+
+// Route avec toutes les associations
+const express = require('express');
 const router = express.Router();
-router.use(express.json());
+const pool = require('../db');
 
-// GET : LEADERBOARD : prénom du volunteer + nbre de collectes
-router.get("/", async (req, res) => {
-  try {
-    const result = await pool.query(
-      "SELECT firstname FROM volunteers SUM from "
-    );
-    if (result.rows.length === 0) {
-      return res.status(404).json({ message: "Volontaire non trouvé" });
-    }
-    res.json(result.rows);
-  } catch (err) {
-    console.error("Erreur lors de la récupération du volontaire :", err);
-    res.status(500).send("Erreur serveur");
-  }
+router.get('/', async (req, res)=>{
+  try{
+    const results = await pool.query('SELECT * FROM associations');
+    // const results = await pool.query('SELECT name, description, points FROM associations');
+    
+
+    res.json(results.rows);
+  } catch(err) {
+    res.status(500).json({error: 'Erreur serveur' });
+  };
 });
 
 module.exports = router;
 
 // créer une route qui résume la page web donate (dans ce cas sans la colonne points_conversion_euro)
-// (Marine) review : Petit point Mardi de 5 min 
+// (Marine) review : Petit point Mardi de 5 min, questions-compréhension sur les routes
