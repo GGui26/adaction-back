@@ -14,7 +14,7 @@ app.use(cors({
 
 const port = 3001; 
 
-
+console.log('1');
 // importer tout le contenu du fichier associations.js dans app.js
 const volunteersRoutes = require('./routes/volunteers');
 const associationsRoutes = require('./routes/associations');
@@ -23,7 +23,7 @@ const wastesRoutes = require('./routes/wastes');
 const collectionsRoutes = require('./routes/collections');
 const leaderboardRoutes = require('./routes/leaderboard');
 
-
+console.log('2');
 app.use((req, res, next) => {
   console.log(`Requête reçue : ${req.method}q ${req.url}`);
   next();
@@ -34,15 +34,15 @@ app.use('/associations', associationsRoutes);
 app.use('/cities' , citiesRoutes);
 app.use('/wastes' , wastesRoutes);
 app.use('/collections', collectionsRoutes);
-app.use('/leaderboard', leaderboardRoutes);
+// app.use('/leaderboard', leaderboardRoutes);
 
-
+console.log('3');
 app.use(cors({
   origin: "http://localhost:3001",
   credentials: true,
 }));
 
-
+console.log('4');
 // pour lancer le serveur
 app.listen(port, () => {
   console.log(`serveur démarré sur le port  ${port}`);

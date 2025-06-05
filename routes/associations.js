@@ -7,8 +7,8 @@ const pool = require('../db');
 
 router.get('/', async (req, res)=>{
   try{
-    const results = await pool.query('SELECT * FROM associations');
-    // const results = await pool.query('SELECT name, description, points FROM associations');
+    // const results = await pool.query('SELECT * FROM associations');
+    const results = await pool.query('SELECT name, description, points FROM associations');
     
 
     res.json(results.rows);
