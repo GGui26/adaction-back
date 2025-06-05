@@ -20,12 +20,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-app.listen(3002, ()=>{
-console.log("tessssssst");
 
-})
-
->>>>>>> 1f2d1665b86786be1d60d3113c1df003ca9c9df8
+// créer une route qui résume la page web donate (dans ce cas sans la colonne points_conversion_euro)
+// (Marine) review : Petit point Mardi de 5 min 
