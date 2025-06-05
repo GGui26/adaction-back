@@ -1,7 +1,9 @@
 
 const express = require('express');
-const router = express.Router();
 const pool = require('../db');
+
+const router = express.Router();
+router.use(express.json());
 
 // GET : Toutes les collectes
 router.get('/', async (req, res) => {
