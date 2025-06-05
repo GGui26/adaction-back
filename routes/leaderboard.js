@@ -20,4 +20,12 @@ router.get("/", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+app.listen(3002, ()=>{
+console.log("tessssssst");
+
+})
+
+>>>>>>> 1f2d1665b86786be1d60d3113c1df003ca9c9df8
