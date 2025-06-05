@@ -1,19 +1,23 @@
-const express = require('express');
-const volunteers = require('../volunteers.json');
+const express = require("express");
+const pool = require("../db");
 
-const app = express();
-app.use(express.json()); // nécessaire pour les POST car on solicite le body JSON
+const router = express.Router();
+router.use(express.json());
 
-
-
-// GET : TOUS LES VOLUNTEERS OU AVEC FILTRES
-app.get('/', (req, res) => {
- res.send('Hello leaderboard!');
+// GET : LEADERBOARD : prénom du volunteer + nbre de collectes
+router.get("/", async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT firstname FROM volunteers SUM from "
+    );
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Volontaire non trouvé" });
+    }
+    res.json(result.rows);
+  } catch (err) {
+    console.error("Erreur lors de la récupération du volontaire :", err);
+    res.status(500).send("Erreur serveur");
+  }
 });
 
-app.listen(3002, ()=>{
-console.log("tessssssst");
-
-
-})
-
+module.exports = router;
