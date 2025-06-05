@@ -7,12 +7,14 @@ const app = express();
 app.use(express.json()); // MIDDLEWARE global
 app.use(express.urlencoded({ extended: true })); // pour encoder
 
+const port = 3001; 
+
 app.use(cors({
-  origin: "http://localhost:3001",
+  origin: `http://localhost: ${port}`,
   credentials: true,
 }));
 
-const port = 3001; 
+
 
 console.log('1');
 // importer tout le contenu du fichier associations.js dans app.js
