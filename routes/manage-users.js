@@ -1,16 +1,36 @@
-const express = require('express'); // importer la librairie express.js
 
-const router = express.Router(); // créer un routeur 
-router.use(express.json()); // nécessaire pour les POST car on solicite le body JSON
+const express = require('express');
+const router = express.Router();
+const pool = require('../db');
 
-const volunteers = require('../volunteers.json');
+router.get('/', async (req, res)=>{
+  try{
+    const results = await pool.query(`
+      SELECT v.firstname, v.lastname, v.location
+      FROM volunteers
+    `);
+    res.json(results.rows);
+  } catch(err) {
+    res.status(500).json({error: 'Erreur serveur' });
+  };
+});
 
-function getManageUsers(request, response) {
-    console.log("Fonction GET manage-users");
-    response.send(volunteers);
-}
+module.exports = router;
 
-router.get('/', getManageUsers);
+
+// modifier un bénévole
+
+
+
+// router.use(express.json()); // nécessaire pour les POST car on solicite le body JSON
+// const volunteers = require('../volunteers.json');
+
+// function getManageUsers(request, response) {
+//     console.log("Fonction GET manage-users");
+//     response.send(volunteers);
+// }
+
+// router.get('/', getManageUsers);
 
 
 // router.get('/', (request, response) => {
@@ -19,5 +39,5 @@ router.get('/', getManageUsers);
 // }
 // );
 
-module.exports = router; // export veut dire publier les routes et les rendre accessible depuis les autres fichiers JS
+
 
