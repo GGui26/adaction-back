@@ -24,6 +24,7 @@ CREATE TABLE collections (
     "created_at" TIMESTAMP WITHOUT ZONE NOT NULL,
     "total_points" INTEGER
 );
+-- modification dans table collections : suppression de total_points et remplacement par number_collections
 
 CREATE TABLE is_collected (
     "id" SERIAL PRIMARY KEY,
