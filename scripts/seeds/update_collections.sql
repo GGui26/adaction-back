@@ -5,9 +5,10 @@
 --     ADD CONSTRAINT fk_volunteers_collection
 --     FOREIGN KEY ("volunteer_id") REFERENCES volunteers("id");
 
-    ALTER TABLE collections
+ALTER TABLE collections
     ADD CONSTRAINT fk_volunteers_collection
         FOREIGN KEY (volunteer_id) REFERENCES volunteers(id);
+
 
 
 -- add collections
