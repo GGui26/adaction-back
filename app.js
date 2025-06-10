@@ -20,6 +20,7 @@ const citiesRoutes = require("./routes/cities");
 const wastesRoutes = require("./routes/wastes");
 const collectionsRoutes = require("./routes/collections");
 const leaderboardRoutes = require("./routes/leaderboard");
+const connexionRoute = require("./routes/connexion");
 
 console.log("2");
 app.use((req, res, next) => {
@@ -34,6 +35,7 @@ app.use("/cities", citiesRoutes);
 app.use("/wastes", wastesRoutes);
 app.use("/collections", collectionsRoutes);
 app.use("/leaderboard", leaderboardRoutes);
+app.use("/connexion", connexionRoute);
 
 // pour lancer le serveur
 app.listen(port_backend, () => {
