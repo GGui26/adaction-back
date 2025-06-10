@@ -6,7 +6,7 @@ router.use(express.json());
 router.post('/connexion', async (req, res) => {
   try {
     const result = await pool.query(
-      "SELECT * FROM volunteers WHERE firstname = 'Julien' AND password = 'Marseille_P@ss'"
+      `SELECT * FROM volunteers WHERE firstname = 'Julien' AND password = 'Marseille_P@ss'`
     );    if (result.rows.length === 0) {
       return res.status(401).json({ message: "Identifiants invalides." });
     }    const volunteer = result.rows[0];

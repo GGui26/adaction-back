@@ -35,7 +35,7 @@ app.use("/cities", citiesRoutes);
 app.use("/wastes", wastesRoutes);
 app.use("/collections", collectionsRoutes);
 app.use("/leaderboard", leaderboardRoutes);
-app.use("/connexion", connexionRoute);
+app.use("/", connexionRoute);
 
 // pour lancer le serveur
 app.listen(port_backend, () => {
